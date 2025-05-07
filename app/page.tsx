@@ -88,21 +88,26 @@ export default function Home() {
             Una experiencia única
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard
               icon={<FaKey className="text-primary-500" size={36} />}
               title="Check-in Automatizado"
-              description="Accede a tu habitación con nuestro sistema de cerraduras inteligentes, sin necesidad de esperar."
+              description="Olvídate de horarios restrictivos y recepcionistas. Accede a cualquier hora con nuestro sistema de cerraduras inteligentes y disfruta de total privacidad y flexibilidad."
             />
             <FeatureCard
               icon={<FaWifi className="text-primary-500" size={36} />}
-              title="WiFi de Alta Velocidad"
-              description="Conexión de fibra óptica en todas las habitaciones y áreas comunes."
+              title="Zona de Coworking"
+              description="Espacio relajante dedicado para trabajar con WiFi de alta velocidad y todo lo necesario para ser productivo durante tu estancia."
+            />
+            <FeatureCard
+              icon={<FaCoffee className="text-primary-500" size={36} />}
+              title="Servicio de Desayuno"
+              description="Comienza tu día con energía gracias a nuestro delicioso desayuno con productos locales y opciones para todos los gustos."
             />
             <FeatureCard
               icon={<FaMapMarkedAlt className="text-primary-500" size={36} />}
               title="Ubicación Privilegiada"
-              description="A pocos minutos caminando de las principales atracciones y playas de Malta."
+              description="Nos encontramos a pocos minutos caminando de las principales atracciones, playas y restaurantes de Malta. La ubicación perfecta para explorar la isla."
             />
           </div>
         </div>
