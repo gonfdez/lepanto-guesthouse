@@ -225,8 +225,7 @@ export default function Home() {
             ¿Listo para vivir la experiencia?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Reserva ahora y disfruta de una estancia inolvidable disfrutando
-            Malta.
+            Reserva ahora y disfruta de una estancia inolvidable.
           </p>
           <Link
             href="/booking"
