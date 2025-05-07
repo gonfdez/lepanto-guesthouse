@@ -17,6 +17,8 @@ interface MobileNavLinkProps extends Omit<NavLinkProps, "isScrolled"> {
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [language, setLanguage] = useState<"es" | "en">("es"); // Por defecto español
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState<boolean>(false);
 
   // Detectar scroll para cambiar estilo del header
   useEffect(() => {
@@ -30,6 +32,28 @@ const Header: React.FC = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Función para cambiar el idioma
+  const toggleLanguage = (lang: "es" | "en") => {
+    setLanguage(lang);
+    setIsLanguageMenuOpen(false);
+    // Aquí irá la lógica para cambiar el idioma cuando implementes i18n
+  };
+
+  // Cerrar el menú de idiomas al hacer clic fuera de él
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest(".language-selector")) {
+        setIsLanguageMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   return (
@@ -55,7 +79,7 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Navegación de escritorio - Usando los estilos normales de enlaces */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             <NavLink href="/" isScrolled={isScrolled}>
               Inicio
             </NavLink>
@@ -74,18 +98,98 @@ const Header: React.FC = () => {
             <NavLink href="/contact" isScrolled={isScrolled}>
               Contacto
             </NavLink>
+
+            {/* Selector de idioma */}
+            <div className="language-selector relative">
+              <button
+                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                className={`flex items-center font-medium transition-colors duration-300 ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-primary-600"
+                    : "!text-white hover:text-gray-50"
+                }`}
+                aria-label="Seleccionar idioma"
+              >
+                <span className="mr-1">{language === "es" ? "🇪🇸" : "🇬🇧"}</span>
+                <span className="sr-only md:not-sr-only">
+                  {language === "es" ? "ES" : "EN"}
+                </span>
+              </button>
+
+              {/* Menú desplegable de idiomas */}
+              {isLanguageMenuOpen && (
+                <div className="absolute right-0 mt-2 py-2 w-24 bg-white rounded-md shadow-lg z-20">
+                  <button
+                    onClick={() => toggleLanguage("es")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+                      language === "es" ? "bg-gray-100" : ""
+                    }`}
+                  >
+                    <span className="mr-2">🇪🇸</span> ES
+                  </button>
+                  <button
+                    onClick={() => toggleLanguage("en")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+                      language === "en" ? "bg-gray-100" : ""
+                    }`}
+                  >
+                    <span className="mr-2">🇬🇧</span> EN
+                  </button>
+                </div>
+              )}
+            </div>
           </nav>
 
-          {/* Botón de menú móvil */}
-          <button
-            className={`md:hidden transition-colors duration-300 ${
-              isScrolled || isMenuOpen ? "text-gray-800" : "text-white"
-            }`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
-          >
-            {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
+          {/* Botón de menú móvil y selector de idioma en móvil */}
+          <div className="md:hidden flex items-center space-x-4">
+            {/* Selector de idioma móvil */}
+            <div className="language-selector relative">
+              <button
+                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                className={`flex items-center transition-colors duration-300 ${
+                  isScrolled || isMenuOpen ? "text-gray-800" : "text-white"
+                }`}
+                aria-label="Seleccionar idioma"
+              >
+                <span className="text-xl">
+                  {language === "es" ? "🇪🇸" : "🇬🇧"}
+                </span>
+              </button>
+
+              {/* Menú desplegable de idiomas */}
+              {isLanguageMenuOpen && (
+                <div className="absolute right-0 mt-2 py-2 w-24 bg-white rounded-md shadow-lg z-20">
+                  <button
+                    onClick={() => toggleLanguage("es")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+                      language === "es" ? "bg-gray-100" : ""
+                    }`}
+                  >
+                    <span className="mr-2">🇪🇸</span> ES
+                  </button>
+                  <button
+                    onClick={() => toggleLanguage("en")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+                      language === "en" ? "bg-gray-100" : ""
+                    }`}
+                  >
+                    <span className="mr-2">🇬🇧</span> EN
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Botón del menú móvil */}
+            <button
+              className={`transition-colors duration-300 ${
+                isScrolled || isMenuOpen ? "text-gray-800" : "text-white"
+              }`}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            >
+              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Menú móvil */}
