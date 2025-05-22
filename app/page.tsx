@@ -76,6 +76,12 @@ export default function Home() {
               >
                 Ver habitaciones
               </Link>
+              <Link
+                href="/rooms"
+                className="bg-white hover:bg-gray-100 text-gray-800 px-8 py-3 rounded-md font-medium transition-colors"
+              >
+                Ver en el mapa
+              </Link>
             </div>
           </div>
         </div>
