@@ -69,9 +69,9 @@ const Header: React.FC = () => {
           {/* Logo - Solo este título tiene override de estilos */}
           <Link href="/" className="flex items-center space-x-2 group">
             <img
-              src="/logo/Lepanto2.svg"
+              src="/logo/Lepanto2-v2.svg"
               alt="Lepanto Logo"
-              className={`h-25 w-auto transition-colors duration-300 ${
+              className={`h-20 w-auto transition-colors duration-300 ${
                 isScrolled || isMenuOpen ? "text-gray-800" : "text-white"
               }`}
               style={{
