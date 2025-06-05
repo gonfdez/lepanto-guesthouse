@@ -67,15 +67,25 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           {/* Logo - Solo este título tiene override de estilos */}
-          <Link
-            href="/"
-            className="text-2xl font-bold transition-colors duration-300"
-            style={{
-              color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
-              textDecoration: "none",
-            }}
-          >
-            Lepanto Guest House
+          <Link href="/" className="flex items-center space-x-2 group">
+            <img
+              src="/logo/Lepanto2.svg"
+              alt="Lepanto Logo"
+              className={`h-25 w-auto transition-colors duration-300 ${
+                isScrolled || isMenuOpen ? "text-gray-800" : "text-white"
+              }`}
+              style={{
+                color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
+              }}
+            />
+            <span
+              className="text-2xl font-bold transition-colors duration-300 group-hover:opacity-90"
+              style={{
+                color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
+              }}
+            >
+              Lepanto Guest House
+            </span>
           </Link>
 
           {/* Navegación de escritorio - Usando los estilos normales de enlaces */}
@@ -95,9 +105,9 @@ const Header: React.FC = () => {
             <NavLink href="/faq" isScrolled={isScrolled}>
               FAQ
             </NavLink>
-            <NavLink href="/contact" isScrolled={isScrolled}>
+            {/* <NavLink href="/contact" isScrolled={isScrolled}>
               Contacto
-            </NavLink>
+            </NavLink> */}
 
             {/* Selector de idioma */}
             <div className="language-selector relative">
@@ -214,12 +224,12 @@ const Header: React.FC = () => {
               <MobileNavLink href="/faq" onClick={() => setIsMenuOpen(false)}>
                 FAQ
               </MobileNavLink>
-              <MobileNavLink
+              {/* <MobileNavLink
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contacto
-              </MobileNavLink>
+              </MobileNavLink> */}
             </div>
           </div>
         )}
