@@ -96,9 +96,9 @@ const Header: React.FC = () => {
             <NavLink href="/booking" isScrolled={isScrolled}>
               Reservas
             </NavLink>
-            <NavLink href="/about" isScrolled={isScrolled}>
+            {/* <NavLink href="/about" isScrolled={isScrolled}>
               Nosotros
-            </NavLink>
+            </NavLink> */}
             <NavLink href="/faq" isScrolled={isScrolled}>
               FAQ
             </NavLink>
@@ -215,9 +215,9 @@ const Header: React.FC = () => {
               >
                 Reservas
               </MobileNavLink>
-              <MobileNavLink href="/about" onClick={() => setIsMenuOpen(false)}>
+              {/* <MobileNavLink href="/about" onClick={() => setIsMenuOpen(false)}>
                 Nosotros
-              </MobileNavLink>
+              </MobileNavLink> */}
               <MobileNavLink href="/faq" onClick={() => setIsMenuOpen(false)}>
                 FAQ
               </MobileNavLink>
