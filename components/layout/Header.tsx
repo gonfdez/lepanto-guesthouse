@@ -70,13 +70,13 @@ const Header: React.FC = () => {
           {/* Logo - Solo este título tiene override de estilos */}
           <Link href="/" className="flex items-center space-x-2 group">
             <LepantoLogo
-              className="h-10 md:h-20 me-4 w-auto transition-colors duration-300"
+              className="h-15 md:h-20 me-4 md:me-8 w-auto transition-colors duration-300"
               style={{
                 color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
               }}
             />
             <span
-              className="text-2xl font-bold transition-colors duration-300 group-hover:opacity-90"
+              className="text-xl md:text-2xl font-bold transition-colors duration-300 group-hover:opacity-90"
               style={{
                 color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
               }}
