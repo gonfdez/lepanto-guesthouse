@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { LepantoLogo } from "./LepantoLogo";
 
 interface NavLinkProps {
   href: string;
@@ -68,12 +69,8 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           {/* Logo - Solo este título tiene override de estilos */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <img
-              src="/logo/Lepanto2-v2.svg"
-              alt="Lepanto Logo"
-              className={`h-20 w-auto transition-colors duration-300 ${
-                isScrolled || isMenuOpen ? "text-gray-800" : "text-white"
-              }`}
+            <LepantoLogo
+              className="h-10 md:h-20 me-4 w-auto transition-colors duration-300"
               style={{
                 color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
               }}
