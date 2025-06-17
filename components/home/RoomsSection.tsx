@@ -56,7 +56,7 @@ export default function RoomsSection() {
             href="/rooms"
             className="inline-block border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-6 py-2 rounded-md transition-colors"
           >
-            Ver todas las habitaciones
+            Reservar ahora
           </Link>
         </div>
       </div>
