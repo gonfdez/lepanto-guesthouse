@@ -81,7 +81,7 @@ const Header: React.FC = () => {
                 color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
               }}
             >
-              Lepanto Guest House
+              Lepanto Guesthouse
             </span>
           </Link>
 
