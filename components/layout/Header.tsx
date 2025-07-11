@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { LepantoLogo } from "./LepantoLogo";
+import { usePathname } from "next/navigation";
+
 
 interface NavLinkProps {
   href: string;
@@ -20,6 +22,10 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [language, setLanguage] = useState<"es" | "en">("es"); // Por defecto español
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState<boolean>(false);
+
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const showTransparentHeader = isHome && !isScrolled && !isMenuOpen;
 
   // Detectar scroll para cambiar estilo del header
   useEffect(() => {
@@ -59,11 +65,10 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled || isMenuOpen
-          ? "bg-white shadow-md py-2"
-          : "bg-transparent py-4"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${!showTransparentHeader
+        ? "bg-white shadow-md py-2"
+        : "bg-transparent py-4"
+        }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
@@ -72,13 +77,13 @@ const Header: React.FC = () => {
             <LepantoLogo
               className="h-15 md:h-20 me-4 md:me-8 w-auto transition-colors duration-300"
               style={{
-                color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
+                color: !showTransparentHeader ? "#1f2937" : "#ffffff",
               }}
             />
             <span
               className="text-xl md:text-2xl font-bold transition-colors duration-300 group-hover:opacity-90"
               style={{
-                color: isScrolled || isMenuOpen ? "#1f2937" : "#ffffff",
+                color: !showTransparentHeader ? "#1f2937" : "#ffffff",
               }}
             >
               Lepanto Guesthouse
@@ -110,11 +115,10 @@ const Header: React.FC = () => {
             <div className="language-selector relative">
               <button
                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                className={`flex items-center font-medium transition-colors duration-300 ${
-                  isScrolled
-                    ? "text-gray-700 hover:text-primary-600"
-                    : "!text-white hover:text-gray-50"
-                }`}
+                className={`flex items-center font-medium transition-colors duration-300 ${isScrolled || !isHome
+                  ? "text-gray-700 hover:text-primary-600"
+                  : "!text-white hover:text-gray-50"
+                  }`}
                 aria-label="Seleccionar idioma"
               >
                 <span className="mr-1">{language === "es" ? "🇪🇸" : "🇬🇧"}</span>
@@ -128,17 +132,15 @@ const Header: React.FC = () => {
                 <div className="absolute right-0 mt-2 py-2 w-24 bg-white rounded-md shadow-lg z-20">
                   <button
                     onClick={() => toggleLanguage("es")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                      language === "es" ? "bg-gray-100" : ""
-                    }`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "es" ? "bg-gray-100" : ""
+                      }`}
                   >
                     <span className="mr-2">🇪🇸</span> ES
                   </button>
                   <button
                     onClick={() => toggleLanguage("en")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                      language === "en" ? "bg-gray-100" : ""
-                    }`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "en" ? "bg-gray-100" : ""
+                      }`}
                   >
                     <span className="mr-2">🇬🇧</span> EN
                   </button>
@@ -153,9 +155,8 @@ const Header: React.FC = () => {
             <div className="language-selector relative">
               <button
                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                className={`flex items-center transition-colors duration-300 ${
-                  isScrolled || isMenuOpen ? "text-gray-800" : "text-white"
-                }`}
+                className={`flex items-center transition-colors duration-300 ${!showTransparentHeader ? "text-gray-800" : "text-white"
+                  }`}
                 aria-label="Seleccionar idioma"
               >
                 <span className="text-xl">
@@ -168,17 +169,15 @@ const Header: React.FC = () => {
                 <div className="absolute right-0 mt-2 py-2 w-24 bg-white rounded-md shadow-lg z-20">
                   <button
                     onClick={() => toggleLanguage("es")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                      language === "es" ? "bg-gray-100" : ""
-                    }`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "es" ? "bg-gray-100" : ""
+                      }`}
                   >
                     <span className="mr-2">🇪🇸</span> ES
                   </button>
                   <button
                     onClick={() => toggleLanguage("en")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                      language === "en" ? "bg-gray-100" : ""
-                    }`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "en" ? "bg-gray-100" : ""
+                      }`}
                   >
                     <span className="mr-2">🇬🇧</span> EN
                   </button>
@@ -188,9 +187,8 @@ const Header: React.FC = () => {
 
             {/* Botón del menú móvil */}
             <button
-              className={`transition-colors duration-300 ${
-                isScrolled || isMenuOpen ? "text-gray-800" : "text-white"
-              }`}
+              className={`transition-colors duration-300 ${!showTransparentHeader ? "text-gray-800" : "text-white"
+                }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
@@ -237,14 +235,15 @@ const Header: React.FC = () => {
 
 // Componente para enlaces de navegación de escritorio
 const NavLink: React.FC<NavLinkProps> = ({ href, children, isScrolled }) => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   return (
     <Link
       href={href}
-      className={`font-medium transition-colors duration-300 ${
-        isScrolled
-          ? "text-gray-700 hover:text-primary-600"
-          : "!text-white hover:text-gray-50"
-      }`}
+      className={`font-medium transition-colors duration-300 ${isScrolled || !isHome
+        ? "text-gray-700 hover:text-primary-600"
+        : "!text-white hover:text-gray-50"
+        }`}
     >
       {children}
     </Link>
