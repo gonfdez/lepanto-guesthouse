@@ -1,7 +1,7 @@
-// components/ui/RoomCard.tsx
 import Image from "next/image";
-import Link from "next/link";
 import { FaStar } from "react-icons/fa";
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 interface RoomCardProps {
   image: string;
@@ -18,6 +18,8 @@ export default function RoomCard({
   rating,
   link,
 }: RoomCardProps) {
+  const t = useTranslations('roomCard');
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <div className="relative h-56">
@@ -31,12 +33,14 @@ export default function RoomCard({
             <span className="ml-1 text-gray-800">{rating}</span>
           </div>
         </div>
-        <p className="text-gray-600 mb-4">Desde €{price} / noche</p>
+        <p className="text-gray-600 mb-4">
+          {t('from')} {price}€ {t('perNight')}
+        </p>
         <Link
           href={link}
           className="block text-center bg-primary-500 hover:bg-primary-600 text-white py-2 rounded-md transition-colors"
         >
-          Ver detalles
+          {t('viewDetails')}
         </Link>
       </div>
     </div>

@@ -112,5 +112,10 @@
             "twitter": "Twitter",
             "emailNewsletter": "Email for newsletter"
         }
+    },
+    "roomCard": {
+        "from": "From",
+        "perNight": "/ night",
+        "viewDetails": "View details"
     }
 }
