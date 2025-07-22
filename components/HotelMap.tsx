@@ -44,6 +44,29 @@ const createLetterIcon = (letter: string, color: string, size: number = 28) => {
   });
 };
 
+// Funciones para generar los mismos SVGs pero como data URLs para usar en la leyenda
+const getHeroIconSvg = (iconPath: string, color: string, size: number = 24) => {
+  return `data:image/svg+xml;base64,${btoa(`
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="11" fill="white" stroke="${color}" strokeWidth="2"/>
+      <g transform="translate(3.5, 3.5)">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path stroke="${color}" strokeLinecap="round" strokeLineJoin="round" strokeWidth="2" d="${iconPath}"/>
+        </svg>
+      </g>
+    </svg>
+  `)}`;
+};
+
+const getLetterIconSvg = (letter: string, color: string, size: number = 24) => {
+  return `data:image/svg+xml;base64,${btoa(`
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="11" fill="${color}" stroke="white" strokeWidth="2"/>
+      <text x="12" y="16" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">${letter}</text>
+    </svg>
+  `)}`;
+};
+
 // Iconos usando Heroicons oficiales
 const hotelIcon = createHeroIcon(
   'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25', // home
@@ -57,6 +80,19 @@ const poiIcon = createHeroIcon(
   'M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z', // map-pin
   '#16a34a',
   28
+);
+
+// SVGs para la leyenda (mismo diseño que los iconos del mapa)
+const hotelIconSvg = getHeroIconSvg(
+  'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
+  '#dc2626'
+);
+
+const busStopIconSvg = getLetterIconSvg('B', '#2563eb');
+
+const poiIconSvg = getHeroIconSvg(
+  'M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z',
+  '#16a34a'
 );
 
 interface BusStopPopupProps {
@@ -201,28 +237,30 @@ const HotelMap: React.FC<MapProps> = ({
         </MapContainer>
       </div>
 
-      {/* Info rápida debajo del mapa */}
+      {/* Leyenda sincronizada con iconos idénticos a los del mapa */}
       <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
         <div className="flex items-center space-x-2 text-gray-700">
-          <div className="w-6 h-6 bg-red-600 rounded-full border-2 border-white flex items-center justify-center">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path stroke="white" strokeLinecap="round" strokeLineJoin="round" strokeWidth="3" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
-            </svg>
-          </div>
+          <img 
+            src={hotelIconSvg} 
+            alt="Hotel" 
+            className="w-6 h-6" 
+          />
           <span>{t('hotelLocation')}</span>
         </div>
         <div className="flex items-center space-x-2 text-gray-700">
-          <div className="w-6 h-6 bg-blue-600 rounded-full border-2 border-white flex items-center justify-center">
-            <span className="text-white text-xs font-bold">B</span>
-          </div>
+          <img 
+            src={busStopIconSvg} 
+            alt="Bus Stop" 
+            className="w-6 h-6" 
+          />
           <span>{t('busStops')} ({busStops.length})</span>
         </div>
         <div className="flex items-center space-x-2 text-gray-700">
-          <div className="w-6 h-6 bg-green-600 rounded-full border-2 border-white flex items-center justify-center">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path stroke="white" strokeLinecap="round" strokeLineJoin="round" strokeWidth="3" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
-            </svg>
-          </div>
+          <img 
+            src={poiIconSvg} 
+            alt="Points of Interest" 
+            className="w-6 h-6" 
+          />
           <span>{t('nearbyAttractions')} ({pointsOfInterest.length})</span>
         </div>
       </div>
