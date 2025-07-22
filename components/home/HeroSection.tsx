@@ -33,7 +33,7 @@ export default function HeroSection({ images }: HeroSectionProps) {
           </div>
 
           {/* Botones más blancos (menos transparentes) */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 mt-6">
             <Link
               href="/rooms"
               className="group bg-white/80 hover:bg-white/90 text-gray-900 font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border border-white/40"
