@@ -75,7 +75,7 @@ const Header: React.FC = () => {
           {/* Logo - Solo este título tiene override de estilos */}
           <Link href="/" className="flex items-center space-x-2 group">
             <LepantoLogo
-              className="h-15 md:h-20 me-4 md:me-8 w-auto transition-colors duration-300"
+              className="h-10 md:h-15 me-4 md:me-8 w-auto transition-colors duration-300"
               style={{
                 color: !showTransparentHeader ? "#1f2937" : "#ffffff",
               }}
