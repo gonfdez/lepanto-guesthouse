@@ -10,40 +10,40 @@ export default function HeroSection({ images }: HeroSectionProps) {
   const t = useTranslations('hero');
 
   return (
-    <section className="relative h-screen">
+    <section className="relative h-screen min-h-[500px]">
       {/* Carrusel de imágenes */}
       <HeroCarousel images={images} interval={6000} />
 
       {/* Contenido del hero */}
-      <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center pointer-events-none">
-        <div className="max-w-2xl space-y-6 pointer-events-auto">
+      <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center pointer-events-none pt-16 md:pt-20">
+        <div className="max-w-2xl space-y-4 md:space-y-6 pointer-events-auto">
 
           {/* Título con contenedor ajustado al contenido */}
-          <div className="inline-block backdrop-blur-md bg-black/20 p-4 rounded-xl border border-white/10">
-            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-2xl !mb-0">
+          <div className="inline-block backdrop-blur-md bg-black/20 p-3 md:p-4 rounded-xl border border-white/10">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white drop-shadow-2xl !mb-0">
               {t('title')}
             </h1>
           </div>
 
           {/* Subtítulo con contenedor ajustado al contenido */}
-          <div className="inline-block backdrop-blur-md bg-black/15 p-3 rounded-xl border border-white/10">
-            <p className="text-xl text-white/95 drop-shadow-lg !m-0">
+          <div className="inline-block backdrop-blur-md bg-black/15 p-2 md:p-3 rounded-xl border border-white/10">
+            <p className="text-lg md:text-xl text-white/95 drop-shadow-lg !m-0">
               {t('subtitle')}
             </p>
           </div>
 
           {/* Botones más blancos (menos transparentes) */}
-          <div className="flex flex-wrap gap-4 mt-6">
+          <div className="flex flex-wrap gap-3 md:gap-4 mt-4 md:mt-6">
             <Link
               href="/rooms"
-              className="group bg-white/80 hover:bg-white/90 text-gray-900 font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border border-white/40"
+              className="group bg-white/80 hover:bg-white/90 text-gray-900 font-bold px-6 py-3 md:px-8 md:py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border border-white/40 text-sm md:text-base"
             >
               <span>{t('viewRooms')}</span>
             </Link>
 
             <Link
               href="/rooms"
-              className="group bg-white/80 hover:bg-white/90 text-gray-900 font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border border-white/40"
+              className="group bg-white/80 hover:bg-white/90 text-gray-900 font-bold px-6 py-3 md:px-8 md:py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border border-white/40 text-sm md:text-base"
             >
               <span>{t('viewOnMap')}</span>
             </Link>
