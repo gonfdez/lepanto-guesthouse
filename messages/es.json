@@ -9,5 +9,10 @@
     "rooms": "Habitaciones",
     "booking": "Reservas",
     "faq": "FAQ"
+  },
+  "header": {
+    "selectLanguage": "Seleccionar idioma",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   }
 }

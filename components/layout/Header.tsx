@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { LepantoLogo } from "./LepantoLogo";
-import { usePathname } from "next/navigation";
-import { locales } from "../../i18n/config";
-
+import { usePathname, useRouter } from '@/i18n/routing';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
+import { locales, localeUtils, type Locale } from "../../i18n/config";
+import { US, ES } from 'country-flag-icons/react/3x2'
 
 interface NavLinkProps {
   href: string;
@@ -21,11 +22,16 @@ interface MobileNavLinkProps extends Omit<NavLinkProps, "isScrolled"> {
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [language, setLanguage] = useState<"es" | "en">("es"); // Por defecto español
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState<boolean>(false);
 
   const pathname = usePathname();
-  const isHome = pathname === "/" || locales.some(locale => pathname === `/${locale}`);
+  const locale = useLocale() as Locale;
+  const router = useRouter();
+  const t = useTranslations('navigation');
+  const tHeader = useTranslations('header');
+
+  // Usar la utilidad para detectar home
+  const isHome = localeUtils.isHomePath(pathname);
   const showTransparentHeader = isHome && !isScrolled && !isMenuOpen;
 
   // Detectar scroll para cambiar estilo del header
@@ -43,10 +49,10 @@ const Header: React.FC = () => {
   }, []);
 
   // Función para cambiar el idioma
-  const toggleLanguage = (lang: "es" | "en") => {
-    setLanguage(lang);
+  const changeLanguage = (newLocale: Locale) => {
     setIsLanguageMenuOpen(false);
-    // Aquí irá la lógica para cambiar el idioma cuando implementes i18n
+    setIsMenuOpen(false); // También cerrar el menú móvil
+    router.push(pathname, { locale: newLocale });
   };
 
   // Cerrar el menú de idiomas al hacer clic fuera de él
@@ -64,6 +70,13 @@ const Header: React.FC = () => {
     };
   }, []);
 
+  // Mapeo de locales a banderas y textos
+  const localeDisplay = {
+    'en': { flag: <US className="w-6 h-5" />, text: 'EN' },
+    'es': { flag: <ES className="w-6 h-5" />, text: 'ES' },
+    // 'fr': { flag: <FR className="w-5 h-4" />, text: 'FR' },
+  } as const;
+
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${!showTransparentHeader
@@ -73,7 +86,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
-          {/* Logo - Solo este título tiene override de estilos */}
+          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <LepantoLogo
               className="h-10 md:h-15 me-4 md:me-8 w-auto transition-colors duration-300"
@@ -91,28 +104,22 @@ const Header: React.FC = () => {
             </span>
           </Link>
 
-          {/* Navegación de escritorio - Usando los estilos normales de enlaces */}
+          {/* Navegación de escritorio */}
           <nav className="hidden md:flex items-center space-x-8">
             <NavLink href="/" isScrolled={isScrolled}>
-              Inicio
+              {t('home')}
             </NavLink>
             <NavLink href="/rooms" isScrolled={isScrolled}>
-              Habitaciones
+              {t('rooms')}
             </NavLink>
             <NavLink href="/booking" isScrolled={isScrolled}>
-              Reservas
+              {t('booking')}
             </NavLink>
-            {/* <NavLink href="/about" isScrolled={isScrolled}>
-              Nosotros
-            </NavLink> */}
             <NavLink href="/faq" isScrolled={isScrolled}>
-              FAQ
+              {t('faq')}
             </NavLink>
-            {/* <NavLink href="/contact" isScrolled={isScrolled}>
-              Contacto
-            </NavLink> */}
 
-            {/* Selector de idioma */}
+            {/* Selector de idioma dinámico - solo desktop */}
             <div className="language-selector relative">
               <button
                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
@@ -120,112 +127,91 @@ const Header: React.FC = () => {
                   ? "text-gray-700 hover:text-primary-600"
                   : "!text-white hover:text-gray-50"
                   }`}
-                aria-label="Seleccionar idioma"
+                aria-label={tHeader('selectLanguage')}
               >
-                <span className="mr-1">{language === "es" ? "🇪🇸" : "🇬🇧"}</span>
+                <span className="mr-1">{localeDisplay[locale]?.flag}</span>
                 <span className="sr-only md:not-sr-only">
-                  {language === "es" ? "ES" : "EN"}
+                  {localeDisplay[locale]?.text}
                 </span>
               </button>
 
-              {/* Menú desplegable de idiomas */}
+              {/* Menú desplegable dinámico */}
               {isLanguageMenuOpen && (
                 <div className="absolute right-0 mt-2 py-2 w-24 bg-white rounded-md shadow-lg z-20">
-                  <button
-                    onClick={() => toggleLanguage("es")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "es" ? "bg-gray-100" : ""
-                      }`}
-                  >
-                    <span className="mr-2">🇪🇸</span> ES
-                  </button>
-                  <button
-                    onClick={() => toggleLanguage("en")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "en" ? "bg-gray-100" : ""
-                      }`}
-                  >
-                    <span className="mr-2">🇬🇧</span> EN
-                  </button>
+                  {locales.map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => changeLanguage(loc)}
+                      className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${locale === loc ? "bg-gray-100" : ""
+                        }`}
+                    >
+                      <span className="mr-2">{localeDisplay[loc]?.flag}</span> 
+                      {localeDisplay[loc]?.text}
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
           </nav>
 
-          {/* Botón de menú móvil y selector de idioma en móvil */}
-          <div className="md:hidden flex items-center space-x-4">
-            {/* Selector de idioma móvil */}
-            <div className="language-selector relative">
-              <button
-                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                className={`flex items-center transition-colors duration-300 ${!showTransparentHeader ? "text-gray-800" : "text-white"
-                  }`}
-                aria-label="Seleccionar idioma"
-              >
-                <span className="text-xl">
-                  {language === "es" ? "🇪🇸" : "🇬🇧"}
-                </span>
-              </button>
-
-              {/* Menú desplegable de idiomas */}
-              {isLanguageMenuOpen && (
-                <div className="absolute right-0 mt-2 py-2 w-24 bg-white rounded-md shadow-lg z-20">
-                  <button
-                    onClick={() => toggleLanguage("es")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "es" ? "bg-gray-100" : ""
-                      }`}
-                  >
-                    <span className="mr-2">🇪🇸</span> ES
-                  </button>
-                  <button
-                    onClick={() => toggleLanguage("en")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "en" ? "bg-gray-100" : ""
-                      }`}
-                  >
-                    <span className="mr-2">🇬🇧</span> EN
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Botón del menú móvil */}
+          {/* Solo botón de menú móvil - sin selector de idioma */}
+          <div className="md:hidden">
             <button
               className={`transition-colors duration-300 ${!showTransparentHeader ? "text-gray-800" : "text-white"
                 }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-label={isMenuOpen ? tHeader('closeMenu') : tHeader('openMenu')}
             >
               {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Menú móvil */}
+        {/* Menú móvil con selector de idioma integrado */}
         {isMenuOpen && (
           <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md">
             <div className="flex flex-col py-4">
               <MobileNavLink href="/" onClick={() => setIsMenuOpen(false)}>
-                Inicio
+                {t('home')}
               </MobileNavLink>
               <MobileNavLink href="/rooms" onClick={() => setIsMenuOpen(false)}>
-                Habitaciones
+                {t('rooms')}
               </MobileNavLink>
               <MobileNavLink
                 href="/booking"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Reservas
+                {t('booking')}
               </MobileNavLink>
-              {/* <MobileNavLink href="/about" onClick={() => setIsMenuOpen(false)}>
-                Nosotros
-              </MobileNavLink> */}
               <MobileNavLink href="/faq" onClick={() => setIsMenuOpen(false)}>
-                FAQ
+                {t('faq')}
               </MobileNavLink>
-              {/* <MobileNavLink
-                href="/contact"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contacto
-              </MobileNavLink> */}
+              
+              {/* Separador */}
+              <hr className="my-2 border-gray-200" />
+              
+              {/* Selector de idioma móvil */}
+              <div className="px-4 py-2">
+                <span className="text-sm text-gray-500 font-medium mb-2 block">
+                  {tHeader('selectLanguage')}
+                </span>
+                <div className="flex space-x-2">
+                  {locales.map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => changeLanguage(loc)}
+                      className={`flex items-center px-3 py-2 rounded-md text-sm transition-colors ${
+                        locale === loc 
+                          ? "bg-primary-100 text-primary-700 border border-primary-300" 
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                    >
+                      <span className="mr-2">{localeDisplay[loc]?.flag}</span>
+                      {localeDisplay[loc]?.text}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -234,10 +220,10 @@ const Header: React.FC = () => {
   );
 };
 
-// Componente para enlaces de navegación de escritorio
+// Componentes NavLink y MobileNavLink permanecen igual...
 const NavLink: React.FC<NavLinkProps> = ({ href, children, isScrolled }) => {
   const pathname = usePathname();
-  const isHome = pathname === "/" || locales.some(locale => pathname === `/${locale}`);
+  const isHome = localeUtils.isHomePath(pathname);
   return (
     <Link
       href={href}
@@ -251,7 +237,6 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, isScrolled }) => {
   );
 };
 
-// Componente para enlaces de navegación móvil
 const MobileNavLink: React.FC<MobileNavLinkProps> = ({
   href,
   onClick,

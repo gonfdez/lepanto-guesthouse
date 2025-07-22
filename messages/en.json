@@ -9,5 +9,10 @@
     "rooms": "Rooms",
     "booking": "Booking",
     "faq": "FAQ"
+  },
+  "header": {
+    "selectLanguage": "Select language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   }
 }
