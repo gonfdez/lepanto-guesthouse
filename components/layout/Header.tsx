@@ -86,7 +86,7 @@ const Header: React.FC = () => {
                 color: !showTransparentHeader ? "#1f2937" : "#ffffff",
               }}
             >
-              Lepanto Guesthouse
+              Hotel Lepanto Guesthouse
             </span>
           </Link>
 

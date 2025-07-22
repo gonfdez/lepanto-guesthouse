@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
           {/* Información de contacto */}
           <div>
             <h3 className="text-white text-xl font-semibold mb-4">
-              Lepanto Guesthouse
+              Hotel Lepanto Guesthouse
             </h3>
             <ul className="space-y-3">
               <li className="flex items-center">
@@ -145,7 +145,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-600 mt-8 pt-6 text-center text-sm text-gray-400">
           <p>
-            &copy; {currentYear} Lepanto Guesthouse. Todos los derechos
+            &copy; {currentYear} Hotel Lepanto Guesthouse. Todos los derechos
             reservados.
           </p>
         </div>

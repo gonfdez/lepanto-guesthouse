@@ -9,7 +9,7 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Lepanto Guesthouse | Tu estancia ideal en Malta",
+  title: "Hotel Lepanto Guesthouse | Tu estancia ideal en Malta",
   description:
     "Guesthouse automatizada con cerraduras inteligentes en Malta. Disfruta de una experiencia única y confortable.",
 };
