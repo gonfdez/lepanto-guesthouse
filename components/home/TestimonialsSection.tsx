@@ -1,22 +1,24 @@
-// components/home/TestimonialsSection.tsx
 import TestimonialCard from "@/components/ui/TestimonialCard";
+import { useTranslations } from 'next-intl';
 
 export default function TestimonialsSection() {
+  const t = useTranslations('testimonials');
+
   const testimonials = [
     {
-      text: "La experiencia con las cerraduras inteligentes fue perfecta. Llegamos tarde y pudimos entrar sin problemas.",
-      author: "María García",
-      location: "España",
+      text: t('reviews.maria.text'),
+      author: t('reviews.maria.author'),
+      location: t('reviews.maria.location'),
     },
     {
-      text: "Habitaciones muy limpias y modernas. La ubicación es perfecta para explorar la isla.",
-      author: "John Smith",
-      location: "Reino Unido",
+      text: t('reviews.john.text'),
+      author: t('reviews.john.author'),
+      location: t('reviews.john.location'),
     },
     {
-      text: "El sistema automatizado hizo que nuestra estancia fuera muy cómoda. Definitivamente volveremos.",
-      author: "Laura Bianchi",
-      location: "Italia",
+      text: t('reviews.laura.text'),
+      author: t('reviews.laura.author'),
+      location: t('reviews.laura.location'),
     },
   ];
 
@@ -24,7 +26,7 @@ export default function TestimonialsSection() {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">
-          Lo que dicen nuestros huéspedes
+          {t('sectionTitle')}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

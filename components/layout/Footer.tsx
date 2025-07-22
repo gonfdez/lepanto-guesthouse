@@ -1,7 +1,5 @@
-// components/layout/Footer.tsx
 "use client";
 
-import Link from "next/link";
 import {
   FaFacebook,
   FaInstagram,
@@ -10,9 +8,12 @@ import {
   FaPhone,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations('footer');
 
   return (
     <footer className="bg-gray-800 text-white pt-12 pb-6">
@@ -43,14 +44,16 @@ const Footer: React.FC = () => {
 
           {/* Enlaces rápidos */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Enlaces rápidos</h3>
+            <h3 className="text-xl font-semibold mb-4">
+              {t('quickLinks')}
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/rooms"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  Habitaciones
+                  {t('links.rooms')}
                 </Link>
               </li>
               <li>
@@ -58,7 +61,7 @@ const Footer: React.FC = () => {
                   href="/booking"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  Reservas
+                  {t('links.booking')}
                 </Link>
               </li>
               <li>
@@ -66,7 +69,7 @@ const Footer: React.FC = () => {
                   href="/about"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  Sobre nosotros
+                  {t('links.about')}
                 </Link>
               </li>
               <li>
@@ -74,7 +77,7 @@ const Footer: React.FC = () => {
                   href="/faq"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  Preguntas frecuentes
+                  {t('links.faq')}
                 </Link>
               </li>
               <li>
@@ -82,7 +85,7 @@ const Footer: React.FC = () => {
                   href="/contact"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  Contacto
+                  {t('links.contact')}
                 </Link>
               </li>
               <li>
@@ -90,7 +93,7 @@ const Footer: React.FC = () => {
                   href="/privacy-policy"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  Política de privacidad
+                  {t('links.privacyPolicy')}
                 </Link>
               </li>
             </ul>
@@ -98,29 +101,31 @@ const Footer: React.FC = () => {
 
           {/* Newsletter y redes sociales */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Síguenos</h3>
+            <h3 className="text-xl font-semibold mb-4">
+              {t('followUs')}
+            </h3>
             <p className="mb-4">
-              Mantente actualizado con nuestras últimas ofertas y novedades.
+              {t('followDescription')}
             </p>
             <div className="flex space-x-4 mb-6">
               <a
                 href="#"
                 className="text-white hover:text-primary-400 transition-colors"
-                aria-label="Facebook"
+                aria-label={t('aria.facebook')}
               >
                 <FaFacebook size={24} />
               </a>
               <a
                 href="#"
                 className="text-white hover:text-primary-400 transition-colors"
-                aria-label="Instagram"
+                aria-label={t('aria.instagram')}
               >
                 <FaInstagram size={24} />
               </a>
               <a
                 href="#"
                 className="text-white hover:text-primary-400 transition-colors"
-                aria-label="Twitter"
+                aria-label={t('aria.twitter')}
               >
                 <FaTwitter size={24} />
               </a>
@@ -129,15 +134,15 @@ const Footer: React.FC = () => {
             <form className="flex" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
-                placeholder="Tu email"
+                placeholder={t('emailPlaceholder')}
                 className="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800"
-                aria-label="Email para newsletter"
+                aria-label={t('aria.emailNewsletter')}
               />
               {/* <button
                 type="submit"
                 className="bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-r-md transition-colors"
               >
-                Suscribir
+                {t('subscribe')}
               </button> */}
             </form>
           </div>
@@ -145,8 +150,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-600 mt-8 pt-6 text-center text-sm text-gray-400">
           <p>
-            &copy; {currentYear} Hotel Lepanto Guesthouse. Todos los derechos
-            reservados.
+            &copy; {currentYear} Hotel Lepanto Guesthouse. {t('copyright')}
           </p>
         </div>
       </div>

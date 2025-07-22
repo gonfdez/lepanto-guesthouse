@@ -1,18 +1,116 @@
 {
-  "metadata": {
-    "title": "Hotel Lepanto Guesthouse | Tu estancia ideal en Malta",
-    "description": "Guesthouse automatizada con cerraduras inteligentes en Malta. Disfruta de una experiencia única y confortable en el corazón del Mediterráneo.",
-    "keywords": "hotel malta, guesthouse malta, alojamiento malta, cerraduras inteligentes, vacaciones malta"
-  },
-  "navigation": {
-    "home": "Inicio",
-    "rooms": "Habitaciones",
-    "booking": "Reservas",
-    "faq": "FAQ"
-  },
-  "header": {
-    "selectLanguage": "Seleccionar idioma",
-    "openMenu": "Abrir menú",
-    "closeMenu": "Cerrar menú"
-  }
+    "metadata": {
+        "title": "Hotel Lepanto Guesthouse | Tu estancia ideal en Malta",
+        "description": "Guesthouse automatizada con cerraduras inteligentes en Malta. Disfruta de una experiencia única y confortable en el corazón del Mediterráneo.",
+        "keywords": "hotel malta, guesthouse malta, alojamiento malta, cerraduras inteligentes, vacaciones malta"
+    },
+    "navigation": {
+        "home": "Inicio",
+        "rooms": "Habitaciones",
+        "booking": "Reservas",
+        "faq": "FAQ"
+    },
+    "header": {
+        "selectLanguage": "Seleccionar idioma",
+        "openMenu": "Abrir menú",
+        "closeMenu": "Cerrar menú"
+    },
+    "hero": {
+        "title": "Tu experiencia ideal en Malta",
+        "subtitle": "Disfruta de una estancia cómoda y moderna con acceso automatizado, en el corazón de Malta.",
+        "viewRooms": "Ver habitaciones",
+        "viewOnMap": "Ver en el mapa"
+    },
+    "features": {
+        "sectionTitle": "Una experiencia única",
+        "automatedCheckin": {
+            "title": "Check-in Automatizado",
+            "description": "Olvídate de horarios restrictivos y recepcionistas. Accede a cualquier hora con nuestro sistema de cerraduras inteligentes y disfruta de total privacidad y flexibilidad."
+        },
+        "coworkingArea": {
+            "title": "Zona de Coworking",
+            "description": "Espacio relajante dedicado para trabajar con WiFi de alta velocidad y todo lo necesario para ser productivo durante tu estancia."
+        },
+        "breakfastService": {
+            "title": "Servicio de Desayuno",
+            "description": "Comienza tu día con energía gracias a nuestro delicioso desayuno con productos locales y opciones para todos los gustos."
+        },
+        "primeLocation": {
+            "title": "Ubicación Privilegiada",
+            "description": "Nos encontramos a pocos minutos caminando de las principales atracciones, playas y restaurantes de Malta. La ubicación perfecta para explorar la isla."
+        }
+    },
+    "rooms": {
+        "sectionTitle": "Nuestras habitaciones",
+        "sectionDescription": "Todas nuestras habitaciones cuentan con cerraduras inteligentes, aire acondicionado, TV de pantalla plana y baño privado.",
+        "bookNow": "Reservar ahora",
+        "roomTypes": {
+            "standard": "Habitación Estándar",
+            "superior": "Habitación Superior",
+            "deluxe": "Suite Deluxe"
+        }
+    },
+    "process": {
+        "sectionTitle": "Cómo funciona",
+        "steps": {
+            "bookOnline": {
+                "title": "Reserva online",
+                "description": "Selecciona tu habitación y fechas a través de nuestro sistema de reservas."
+            },
+            "digitalCheckin": {
+                "title": "Check-in digital",
+                "description": "Realiza el check-in digital desde tu móvil, sin necesidad de esperar en la recepción."
+            },
+            "receiveCode": {
+                "title": "Recibe tu código",
+                "description": "Después de hacer el check-in, recibirás un código único para acceder a tu habitación."
+            },
+            "enjoyStay": {
+                "title": "Disfruta tu estancia",
+                "description": "Relájate y disfruta de tu estancia con total privacidad."
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "Lo que dicen nuestros huéspedes",
+        "reviews": {
+            "maria": {
+                "text": "La experiencia con las cerraduras inteligentes fue perfecta. Llegamos tarde y pudimos entrar sin problemas.",
+                "author": "María García",
+                "location": "España"
+            },
+            "john": {
+                "text": "Habitaciones muy limpias y modernas. La ubicación es perfecta para explorar la isla.",
+                "author": "John Smith",
+                "location": "Reino Unido"
+            },
+            "laura": {
+                "text": "El sistema automatizado hizo que nuestra estancia fuera muy cómoda. Definitivamente volveremos.",
+                "author": "Laura Bianchi",
+                "location": "Italia"
+            }
+        }
+    },
+    "footer": {
+        "quickLinks": "Enlaces rápidos",
+        "followUs": "Síguenos",
+        "followDescription": "Mantente actualizado con nuestras últimas ofertas y novedades.",
+        "emailPlaceholder": "Tu email",
+        "subscribe": "Suscribir",
+        "copyright": "Todos los derechos reservados.",
+        "links": {
+            "rooms": "Habitaciones",
+            "booking": "Reservas",
+            "about": "Sobre nosotros",
+            "faq": "Preguntas frecuentes",
+            "contact": "Contacto",
+            "privacyPolicy": "Política de privacidad"
+        },
+        "aria": {
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "twitter": "Twitter",
+            "emailNewsletter": "Email para newsletter"
+        }
+    }
 }

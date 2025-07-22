@@ -1,37 +1,38 @@
-// components/home/ProcessSection.tsx
 import ProcessStep from "@/components/ui/ProcessStep";
+import { useTranslations } from 'next-intl';
 
 export default function ProcessSection() {
+  const t = useTranslations('process');
+
   const steps = [
     {
       number: "1",
-      title: "Reserva online",
-      description:
-        "Selecciona tu habitación y fechas a través de nuestro sistema de reservas.",
+      title: t('steps.bookOnline.title'),
+      description: t('steps.bookOnline.description'),
     },
     {
       number: "2",
-      title: "Check-in digital",
-      description:
-        "Realiza el check-in digital desde tu móvil, sin necesidad de esperar en la recepción.",
+      title: t('steps.digitalCheckin.title'),
+      description: t('steps.digitalCheckin.description'),
     },
     {
       number: "3",
-      title: "Recibe tu código",
-      description:
-        "Después de hacer el check-in, recibirás un código único para acceder a tu habitación.",
+      title: t('steps.receiveCode.title'),
+      description: t('steps.receiveCode.description'),
     },
     {
       number: "4",
-      title: "Disfruta tu estancia",
-      description: "Relájate y disfruta de tu estancia con total privacidad.",
+      title: t('steps.enjoyStay.title'),
+      description: t('steps.enjoyStay.description'),
     },
   ];
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Cómo funciona</h2>
+        <h2 className="text-3xl font-bold text-center pb-12">
+          {t('sectionTitle')}
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {steps.map((step, index) => (

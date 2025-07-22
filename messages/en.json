@@ -1,18 +1,116 @@
 {
-  "metadata": {
-    "title": "Hotel Lepanto Guesthouse | Your ideal stay in Malta",
-    "description": "Automated guesthouse with smart locks in Malta. Enjoy a unique and comfortable experience in the heart of the Mediterranean.",
-    "keywords": "hotel malta, guesthouse malta, accommodation malta, smart locks, malta vacation"
-  },
-  "navigation": {
-    "home": "Home",
-    "rooms": "Rooms",
-    "booking": "Booking",
-    "faq": "FAQ"
-  },
-  "header": {
-    "selectLanguage": "Select language",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu"
-  }
+    "metadata": {
+        "title": "Hotel Lepanto Guesthouse | Your ideal stay in Malta",
+        "description": "Automated guesthouse with smart locks in Malta. Enjoy a unique and comfortable experience in the heart of the Mediterranean.",
+        "keywords": "hotel malta, guesthouse malta, accommodation malta, smart locks, malta vacation"
+    },
+    "navigation": {
+        "home": "Home",
+        "rooms": "Rooms",
+        "booking": "Booking",
+        "faq": "FAQ"
+    },
+    "header": {
+        "selectLanguage": "Select language",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu"
+    },
+    "hero": {
+        "title": "Your ideal experience in Malta",
+        "subtitle": "Enjoy a comfortable and modern stay with automated access, in the heart of Malta.",
+        "viewRooms": "View rooms",
+        "viewOnMap": "View on map"
+    },
+    "features": {
+        "sectionTitle": "A unique experience",
+        "automatedCheckin": {
+            "title": "Automated Check-in",
+            "description": "Forget about restrictive schedules and receptionists. Access anytime with our smart lock system and enjoy total privacy and flexibility."
+        },
+        "coworkingArea": {
+            "title": "Coworking Area",
+            "description": "Relaxing dedicated space to work with high-speed WiFi and everything you need to be productive during your stay."
+        },
+        "breakfastService": {
+            "title": "Breakfast Service",
+            "description": "Start your day with energy thanks to our delicious breakfast with local products and options for all tastes."
+        },
+        "primeLocation": {
+            "title": "Prime Location",
+            "description": "We are located just a few minutes walk from Malta's main attractions, beaches and restaurants. The perfect location to explore the island."
+        }
+    },
+    "rooms": {
+        "sectionTitle": "Our rooms",
+        "sectionDescription": "All our rooms feature smart locks, air conditioning, flat-screen TV and private bathroom.",
+        "bookNow": "Book now",
+        "roomTypes": {
+            "standard": "Standard Room",
+            "superior": "Superior Room",
+            "deluxe": "Deluxe Suite"
+        }
+    },
+    "process": {
+        "sectionTitle": "How it works",
+        "steps": {
+            "bookOnline": {
+                "title": "Book online",
+                "description": "Select your room and dates through our booking system."
+            },
+            "digitalCheckin": {
+                "title": "Digital check-in",
+                "description": "Complete digital check-in from your mobile, no need to wait at reception."
+            },
+            "receiveCode": {
+                "title": "Receive your code",
+                "description": "After checking in, you'll receive a unique code to access your room."
+            },
+            "enjoyStay": {
+                "title": "Enjoy your stay",
+                "description": "Relax and enjoy your stay with complete privacy."
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "What our guests say",
+        "reviews": {
+            "maria": {
+                "text": "The smart lock experience was perfect. We arrived late and were able to enter without any problems.",
+                "author": "María García",
+                "location": "Spain"
+            },
+            "john": {
+                "text": "Very clean and modern rooms. The location is perfect for exploring the island.",
+                "author": "John Smith",
+                "location": "United Kingdom"
+            },
+            "laura": {
+                "text": "The automated system made our stay very comfortable. We will definitely return.",
+                "author": "Laura Bianchi",
+                "location": "Italy"
+            }
+        }
+    },
+    "footer": {
+        "quickLinks": "Quick links",
+        "followUs": "Follow us",
+        "followDescription": "Stay updated with our latest offers and news.",
+        "emailPlaceholder": "Your email",
+        "subscribe": "Subscribe",
+        "copyright": "All rights reserved.",
+        "links": {
+            "rooms": "Rooms",
+            "booking": "Booking",
+            "about": "About us",
+            "faq": "FAQ",
+            "contact": "Contact",
+            "privacyPolicy": "Privacy policy"
+        },
+        "aria": {
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "twitter": "Twitter",
+            "emailNewsletter": "Email for newsletter"
+        }
+    }
 }
