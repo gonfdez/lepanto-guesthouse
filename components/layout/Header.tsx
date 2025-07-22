@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { LepantoLogo } from "./LepantoLogo";
 import { usePathname } from "next/navigation";
+import { locales } from "../../i18n/config";
 
 
 interface NavLinkProps {
@@ -24,7 +25,7 @@ const Header: React.FC = () => {
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState<boolean>(false);
 
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || locales.some(locale => pathname === `/${locale}`);
   const showTransparentHeader = isHome && !isScrolled && !isMenuOpen;
 
   // Detectar scroll para cambiar estilo del header
@@ -236,7 +237,7 @@ const Header: React.FC = () => {
 // Componente para enlaces de navegación de escritorio
 const NavLink: React.FC<NavLinkProps> = ({ href, children, isScrolled }) => {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || locales.some(locale => pathname === `/${locale}`);
   return (
     <Link
       href={href}

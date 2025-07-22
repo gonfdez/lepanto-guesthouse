@@ -1,3 +1,13 @@
 {
-    
+  "metadata": {
+    "title": "Hotel Lepanto Guesthouse | Tu estancia ideal en Malta",
+    "description": "Guesthouse automatizada con cerraduras inteligentes en Malta. Disfruta de una experiencia única y confortable en el corazón del Mediterráneo.",
+    "keywords": "hotel malta, guesthouse malta, alojamiento malta, cerraduras inteligentes, vacaciones malta"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "rooms": "Habitaciones",
+    "booking": "Reservas",
+    "faq": "FAQ"
+  }
 }

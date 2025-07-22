@@ -1,4 +1,3 @@
-// app/layout.tsx
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
@@ -7,17 +6,72 @@ import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { locales } from '@/i18n/config';
+import { locales, localeMetadataMap, alternateUrls } from '@/i18n/config';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Hotel Lepanto Guesthouse | Tu estancia ideal en Malta",
-  description:
-    "Guesthouse automatizada con cerraduras inteligentes en Malta. Disfruta de una experiencia única y confortable.",
-};
+// Generar metadatos dinámicos basados en el locale
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+
+  const baseUrl = 'https://www.hotellepantoguesthouse.com';
+  const currentUrl = alternateUrls[locale as keyof typeof alternateUrls] || baseUrl;
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+    
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: currentUrl,
+      siteName: 'Hotel Lepanto Guesthouse',
+      images: [
+        {
+          url: `${baseUrl}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          alt: t('title'),
+        }
+      ],
+      locale: localeMetadataMap[locale] || localeMetadataMap['en'], // Fallback a inglés
+      type: 'website',
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: [`${baseUrl}/og-image.jpg`],
+    },
+
+    alternates: {
+      canonical: currentUrl,
+      languages: alternateUrls, // Usa directamente el objeto de config
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,
@@ -36,6 +90,24 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        {/* Hreflang para SEO multiidioma */}
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://www.hotellepantoguesthouse.com"
+        />
+        <link
+          rel="alternate"
+          hrefLang="es"
+          href="https://www.hotellepantoguesthouse.com/es"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://www.hotellepantoguesthouse.com"
+        />
+      </head>
       <Analytics />
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
