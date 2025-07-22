@@ -117,5 +117,10 @@
         "from": "Desde",
         "perNight": "/ noche",
         "viewDetails": "Ver detalles"
+    },
+    "notFound": {
+        "title": "Estamos trabajando en ello 🛠️",
+        "description": "Esta página aún no está disponible. Vuelve más tarde.",
+        "backHome": "Volver al inicio"
     }
 }

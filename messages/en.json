@@ -117,5 +117,10 @@
         "from": "From",
         "perNight": "/ night",
         "viewDetails": "View details"
+    },
+    "notFound": {
+        "title": "We're working on it 🛠️",
+        "description": "This page is not available yet. Come back later.",
+        "backHome": "Back to home"
     }
 }
