@@ -122,5 +122,28 @@
         "title": "Estamos trabajando en ello 🛠️",
         "description": "Esta página aún no está disponible. Vuelve más tarde.",
         "backHome": "Volver al inicio"
+    },
+    "map": {
+        "hotelLocation": "Ubicación del Hotel",
+        "yourHome": "Tu casa en Malta",
+        "busStops": "Paradas de Autobús",
+        "viewRealTimeSchedules": "Ver horarios en tiempo real",
+        "pointsOfInterest": "Puntos de Interés",
+        "loading": "Cargando mapa...",
+        "busRoutes": "Rutas de Autobús",
+        "route": "Ruta",
+        "stopName": "Parada",
+        "nearbyAttractions": "Atracciones Cercanas",
+        "beaches": "Playas",
+        "restaurants": "Restaurantes",
+        "historicalSites": "Sitios Históricos",
+        "shopping": "Comercios",
+        "nextBus": "Próximo autobús",
+        "viewRoute": "Ver recorrido",
+        "legend": "Leyenda"
+    },
+    "common": {
+        "usefulInfo": "Información Útil",
+        "discoverLocation": "Descubre nuestra ubicación privilegiada en Malta y todo lo que puedes explorar cerca de nuestro hotel."
     }
 }

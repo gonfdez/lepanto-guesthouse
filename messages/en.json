@@ -122,5 +122,28 @@
         "title": "We're working on it 🛠️",
         "description": "This page is not available yet. Come back later.",
         "backHome": "Back to home"
+    },
+    "map": {
+        "hotelLocation": "Hotel Location",
+        "yourHome": "Your home in Malta",
+        "busStops": "Bus Stops",
+        "viewRealTimeSchedules": "View real-time schedules",
+        "pointsOfInterest": "Points of Interest",
+        "loading": "Loading map...",
+        "busRoutes": "Bus Routes",
+        "route": "Route",
+        "stopName": "Stop",
+        "nearbyAttractions": "Nearby Attractions",
+        "beaches": "Beaches",
+        "restaurants": "Restaurants",
+        "historicalSites": "Historical Sites",
+        "shopping": "Shopping",
+        "nextBus": "Next bus",
+        "viewRoute": "View route",
+        "legend": "Legend"
+    },
+    "common": {
+        "usefulInfo": "Useful Information",
+        "discoverLocation": "Discover our prime location in Malta and everything you can explore near our hotel."
     }
 }

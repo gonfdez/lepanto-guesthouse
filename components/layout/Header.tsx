@@ -83,6 +83,7 @@ const Header: React.FC = () => {
         ? "bg-white shadow-md py-2"
         : "bg-transparent py-4"
         }`}
+      style={{ zIndex: 9999 }}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
@@ -145,7 +146,7 @@ const Header: React.FC = () => {
                       className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${locale === loc ? "bg-gray-100" : ""
                         }`}
                     >
-                      <span className="mr-2">{localeDisplay[loc]?.flag}</span> 
+                      <span className="mr-2">{localeDisplay[loc]?.flag}</span>
                       {localeDisplay[loc]?.text}
                     </button>
                   ))}
@@ -186,10 +187,10 @@ const Header: React.FC = () => {
               <MobileNavLink href="/faq" onClick={() => setIsMenuOpen(false)}>
                 {t('faq')}
               </MobileNavLink>
-              
+
               {/* Separador */}
               <hr className="my-2 border-gray-200" />
-              
+
               {/* Selector de idioma móvil */}
               <div className="px-4 py-2">
                 <span className="text-sm text-gray-500 font-medium mb-2 block">
@@ -200,11 +201,10 @@ const Header: React.FC = () => {
                     <button
                       key={loc}
                       onClick={() => changeLanguage(loc)}
-                      className={`flex items-center px-3 py-2 rounded-md text-sm transition-colors ${
-                        locale === loc 
-                          ? "bg-primary-100 text-primary-700 border border-primary-300" 
+                      className={`flex items-center px-3 py-2 rounded-md text-sm transition-colors ${locale === loc
+                          ? "bg-primary-100 text-primary-700 border border-primary-300"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                      }`}
+                        }`}
                     >
                       <span className="mr-2">{localeDisplay[loc]?.flag}</span>
                       {localeDisplay[loc]?.text}

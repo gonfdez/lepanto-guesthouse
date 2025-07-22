@@ -4,6 +4,7 @@ import FeaturesSection from "@/components/home/FeaturesSection";
 import RoomsSection from "@/components/home/RoomsSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import LocationSection from "@/components/home/LocationSection";
 
 export default function Home() {
   // Lista de imágenes para el carrusel
@@ -19,6 +20,7 @@ export default function Home() {
       <HeroSection images={heroImages} />
       <FeaturesSection />
       <RoomsSection />
+      <LocationSection />
       <ProcessSection />
       <TestimonialsSection />
     </>
