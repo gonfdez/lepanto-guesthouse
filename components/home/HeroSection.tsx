@@ -36,14 +36,14 @@ export default function HeroSection({ images }: HeroSectionProps) {
           <div className="flex flex-wrap gap-3 md:gap-4 mt-4 md:mt-6">
             <Link
               href="/rooms"
-              className="group bg-white/80 hover:bg-white/90 text-gray-900 font-bold px-6 py-3 md:px-8 md:py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border border-white/40 text-sm md:text-base"
+              className="backdrop-blur-md bg-black/50 !text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border-2 border-primary-500 text-sm md:text-base hover:!text-white"
             >
               <span>{t('viewRooms')}</span>
             </Link>
 
             <Link
               href="/rooms"
-              className="group bg-white/80 hover:bg-white/90 text-gray-900 font-bold px-6 py-3 md:px-8 md:py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border border-white/40 text-sm md:text-base"
+              className="backdrop-blur-md bg-black/50 !text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border-2 border-primary-500 text-sm md:text-base hover:!text-white"
             >
               <span>{t('viewOnMap')}</span>
             </Link>
