@@ -1,9 +1,10 @@
 import ProcessStep from "@/components/ui/ProcessStep";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from 'next-intl';
 
 export default function ProcessSection() {
   const t = useTranslations('process');
-
+  const tRooms = useTranslations('rooms');
   const steps = [
     {
       number: "1",
@@ -43,6 +44,15 @@ export default function ProcessSection() {
               description={step.description}
             />
           ))}
+        </div>
+
+        <div className="text-center mt-8">
+          <Link
+            href="/rooms"
+            className="inline-block border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-6 py-2 rounded-md transition-colors"
+          >
+            {tRooms('bookNow')}
+          </Link>
         </div>
       </div>
     </section>
