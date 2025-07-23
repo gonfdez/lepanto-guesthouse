@@ -214,8 +214,8 @@ const HotelMap: React.FC<MapProps> = ({
       <div className="w-full h-[500px] md:h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-200">
         <MapContainer
           ref={mapRef}
-          center={hotelCoordinates}
-          zoom={15}
+          center={[35.90739132566656, 14.492971844710388]}
+          zoom={14}
           className="w-full h-full"
           zoomControl={true}
           scrollWheelZoom={false} // Mejor UX en mobile
