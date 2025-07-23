@@ -13,7 +13,7 @@ export default function TestimonialCard({
   location,
 }: TestimonialCardProps) {
   return (
-    <div className="flex flex-col justify-between bg-white p-6 rounded-lg shadow-md">
+    <div className="flex flex-col justify-between bg-white p-6 rounded-lg shadow-xl">
       <div className="text-yellow-400 flex mb-4">
         <FaStar />
         <FaStar />
