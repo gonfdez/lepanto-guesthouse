@@ -223,7 +223,7 @@ const HotelMap: React.FC<MapProps> = ({
           ))}
 
           {/* Marcadores de Puntos de Interés */}
-          {pointsOfInterest.slice(0, 5).map((poi) => (
+          {pointsOfInterest.map((poi) => (
             <Marker
               key={poi.id}
               position={poi.coordinates}
