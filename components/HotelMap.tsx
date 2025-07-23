@@ -8,7 +8,7 @@ import { BusStop, PointOfInterest, MapProps } from '../types/map';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-fullscreen/dist/leaflet.fullscreen.css';
 import 'leaflet-fullscreen';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 // Función para crear icono del hotel con fondo rojo
 const createHotelIcon = (iconPath: string, size: number = 32) => {
@@ -187,6 +187,27 @@ const POIPopup: React.FC<POIPopupProps> = ({ poi }) => {
   );
 };
 
+const AutoOpenMarker: React.FC<{ position: [number, number]; icon: Icon; children: React.ReactNode }> = ({ 
+  position, 
+  icon, 
+  children 
+}) => {
+  const markerRef = useRef<any>(null);
+
+  useEffect(() => {
+    // Abrir popup automáticamente cuando el componente se monta
+    if (markerRef.current) {
+      markerRef.current.openPopup();
+    }
+  }, []);
+
+  return (
+    <Marker ref={markerRef} position={position} icon={icon}>
+      <Popup>{children}</Popup>
+    </Marker>
+  );
+};
+
 const HotelMap: React.FC<MapProps> = ({
   hotelCoordinates,
   busStops,
@@ -196,26 +217,14 @@ const HotelMap: React.FC<MapProps> = ({
 
   const mapRef = useRef<any>(null);
 
-  const handleMouseEnter = () => {
-    if (mapRef.current) {
-      mapRef.current.scrollWheelZoom.enable();
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (mapRef.current) {
-      mapRef.current.scrollWheelZoom.disable();
-    }
-  };
-
   return (
-    <div className="w-full" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="w-full">
       {/* Mapa Principal */}
       <div className="w-full h-[500px] md:h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-200">
         <MapContainer
           ref={mapRef}
           center={[35.90739132566656, 14.492971844710388]}
-          zoom={14}
+          zoom={13.5}
           className="w-full h-full"
           zoomControl={true}
           scrollWheelZoom={false} // Mejor UX en mobile
@@ -227,18 +236,16 @@ const HotelMap: React.FC<MapProps> = ({
           />
 
           {/* Marcador del Hotel */}
-          <Marker position={hotelCoordinates} icon={hotelIcon}>
-            <Popup>
-              <div className="text-center">
-                <h3 className="font-bold text-sm text-red-700 mb-1">
-                  {t('hotelLocation')}
-                </h3>
-                <p className="text-xs text-gray-600">
-                  {t('yourHome')}
-                </p>
-              </div>
-            </Popup>
-          </Marker>
+          <AutoOpenMarker position={hotelCoordinates} icon={hotelIcon}>
+            <div className="text-center">
+              <h3 className="font-bold text-sm text-red-700 mb-1">
+                {t('hotelLocation')}
+              </h3>
+              <p className="text-xs text-gray-600">
+                {t('yourHome')}
+              </p>
+            </div>
+          </AutoOpenMarker>
 
           {/* Marcadores de Paradas de Autobús */}
           {busStops.map((busStop) => (
@@ -271,26 +278,26 @@ const HotelMap: React.FC<MapProps> = ({
       {/* Leyenda sincronizada con iconos idénticos a los del mapa */}
       <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
         <div className="flex items-center space-x-2 text-gray-700">
-          <img 
-            src={hotelIconSvg} 
-            alt="Hotel" 
-            className="w-6 h-6" 
+          <img
+            src={hotelIconSvg}
+            alt="Hotel"
+            className="w-6 h-6"
           />
           <span>{t('hotelLocation')}</span>
         </div>
         <div className="flex items-center space-x-2 text-gray-700">
-          <img 
-            src={busStopIconSvg} 
-            alt="Bus Stop" 
-            className="w-6 h-6" 
+          <img
+            src={busStopIconSvg}
+            alt="Bus Stop"
+            className="w-6 h-6"
           />
           <span>{t('busStops')} ({busStops.length})</span>
         </div>
         <div className="flex items-center space-x-2 text-gray-700">
-          <img 
-            src={poiIconSvg} 
-            alt="Points of Interest" 
-            className="w-6 h-6" 
+          <img
+            src={poiIconSvg}
+            alt="Points of Interest"
+            className="w-6 h-6"
           />
           <span>{t('nearbyAttractions')} ({pointsOfInterest.length})</span>
         </div>
