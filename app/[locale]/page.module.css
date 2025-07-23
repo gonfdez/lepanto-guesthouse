@@ -1,0 +1,4 @@
+/* app/page.module.css */
+.smoothScrollPage {
+  scroll-behavior: smooth;
+}

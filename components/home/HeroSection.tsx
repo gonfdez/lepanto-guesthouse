@@ -42,7 +42,7 @@ export default function HeroSection({ images }: HeroSectionProps) {
             </Link>
 
             <Link
-              href="/rooms"
+              href="#location"
               className="backdrop-blur-md bg-black/15 !text-white px-6 py-3 md:px-8 md:py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 border-1 border-primary-500 text-sm md:text-base hover:!text-white"
             >
               <span>{t('viewOnMap')}</span>

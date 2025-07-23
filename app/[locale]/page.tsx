@@ -1,4 +1,5 @@
 // app/page.tsx
+import styles from './page.module.css';
 import HeroSection from "@/components/home/HeroSection";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import RoomsSection from "@/components/home/RoomsSection";
@@ -16,13 +17,13 @@ export default function Home() {
   ];
 
   return (
-    <>
+    <div className={styles.smoothScrollPage}>
       <HeroSection images={heroImages} />
       <FeaturesSection />
       <RoomsSection />
       <LocationSection />
       <ProcessSection />
       <TestimonialsSection />
-    </>
+    </div>
   );
 }

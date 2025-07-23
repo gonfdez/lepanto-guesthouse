@@ -91,7 +91,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${!showTransparentHeader
+      className={`fixed w-full z-50  ${!showTransparentHeader
         ? "bg-white shadow-md py-2"
         : "bg-transparent py-4"
         }`}
@@ -102,13 +102,13 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <LepantoLogo
-              className="h-10 md:h-15 me-4 md:me-8 w-auto transition-colors duration-300"
+              className="h-10 md:h-15 me-4 md:me-8 w-auto  "
               style={{
                 color: !showTransparentHeader ? "#1f2937" : "#ffffff",
               }}
             />
             <span
-              className="text-xl md:text-2xl font-bold transition-colors duration-300 group-hover:opacity-90"
+              className="text-xl md:text-2xl font-bold   group-hover:opacity-90"
               style={{
                 color: !showTransparentHeader ? "#1f2937" : "#ffffff",
               }}
@@ -136,7 +136,7 @@ const Header: React.FC = () => {
             <div className="language-selector relative">
               <button
                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                className={`flex items-center font-medium transition-colors duration-300 ${isScrolled || !isHome
+                className={`flex items-center font-medium   ${isScrolled || !isHome
                   ? "text-gray-700 hover:text-primary-600"
                   : "!text-white hover:text-gray-50"
                   }`}
@@ -170,8 +170,7 @@ const Header: React.FC = () => {
           {/* Solo botón de menú móvil - sin selector de idioma */}
           <div className="md:hidden">
             <button
-              className={`transition-colors duration-300 ${!showTransparentHeader ? "text-gray-800" : "text-white"
-                }`}
+              className={!showTransparentHeader ? "text-gray-800" : "text-white" }
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? tHeader('closeMenu') : tHeader('openMenu')}
             >
@@ -213,9 +212,9 @@ const Header: React.FC = () => {
                     <button
                       key={loc}
                       onClick={() => changeLanguage(loc)}
-                      className={`flex items-center px-3 py-2 rounded-md text-sm transition-colors ${locale === loc
-                          ? "bg-primary-100 text-primary-700 border border-primary-300"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      className={`flex items-center px-3 py-2 rounded-md text-sm  ${locale === loc
+                        ? "bg-primary-100 text-primary-700 border border-primary-300"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
                     >
                       <span className="mr-2">{localeDisplay[loc]?.flag}</span>
@@ -239,7 +238,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, isScrolled }) => {
   return (
     <Link
       href={href}
-      className={`font-medium transition-colors duration-300 ${isScrolled || !isHome
+      className={`font-medium   ${isScrolled || !isHome
         ? "text-gray-700 hover:text-primary-600"
         : "!text-white hover:text-gray-50"
         }`}

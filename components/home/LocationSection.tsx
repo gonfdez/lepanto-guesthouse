@@ -28,7 +28,7 @@ const LocationSection = () => {
   const { busStops, pointsOfInterest, hotelCoordinates } = useMaltaMapData();
 
   return (
-    <section id="location" className="py-16 bg-gray-50">
+    <section id="location" className="py-16 bg-gray-50 scroll-mt-14 md:scroll-mt-19">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
