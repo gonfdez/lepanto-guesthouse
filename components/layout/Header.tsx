@@ -36,6 +36,18 @@ const Header: React.FC = () => {
 
   // Detectar scroll para cambiar estilo del header
   useEffect(() => {
+    // ✅ SOLUCIÓN: Verificar posición inicial de scroll al montar el componente
+    const checkInitialScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Verificar inmediatamente al montar
+    checkInitialScroll();
+
     const handleScroll = (): void => {
       if (window.scrollY > 10) {
         setIsScrolled(true);
@@ -46,7 +58,7 @@ const Header: React.FC = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, []); // Solo se ejecuta una vez al montar
 
   // Función para cambiar el idioma
   const changeLanguage = (newLocale: Locale) => {
