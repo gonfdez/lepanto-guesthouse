@@ -109,8 +109,7 @@
         "aria": {
             "facebook": "Facebook",
             "instagram": "Instagram",
-            "twitter": "Twitter",
-            "emailNewsletter": "Email para newsletter"
+            "twitter": "Twitter"
         }
     },
     "roomCard": {
