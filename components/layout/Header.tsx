@@ -122,7 +122,7 @@ const Header: React.FC = () => {
             <NavLink href="/" isScrolled={isScrolled}>
               {t('home')}
             </NavLink>
-            <NavLink href="/rooms" isScrolled={isScrolled}>
+            <NavLink href="#rooms" isScrolled={isScrolled}>
               {t('rooms')}
             </NavLink>
             <NavLink href="/booking" isScrolled={isScrolled}>
@@ -186,7 +186,7 @@ const Header: React.FC = () => {
               <MobileNavLink href="/" onClick={() => setIsMenuOpen(false)}>
                 {t('home')}
               </MobileNavLink>
-              <MobileNavLink href="/rooms" onClick={() => setIsMenuOpen(false)}>
+              <MobileNavLink href="#rooms" onClick={() => setIsMenuOpen(false)}>
                 {t('rooms')}
               </MobileNavLink>
               <MobileNavLink
