@@ -16,7 +16,7 @@
     "country-flag-icons": "^1.5.19",
     "leaflet": "^1.9.4",
     "leaflet-fullscreen": "^1.0.2",
-    "next": "15.3.2",
+    "next": "15.3.8",
     "next-intl": "^4.3.4",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
