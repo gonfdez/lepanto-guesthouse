@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
@@ -113,7 +112,6 @@ export default async function LocaleLayout({
           href="https://www.hotellepantoguesthouse.com"
         />
       </head>
-      <Analytics />
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
           <div className="flex flex-col min-h-screen">
