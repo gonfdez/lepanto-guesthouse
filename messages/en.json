@@ -7,8 +7,8 @@
     "navigation": {
         "home": "Home",
         "rooms": "Rooms",
-        "booking": "Booking",
-        "faq": "FAQ"
+        "process": "How it works",
+        "testimonials": "Reviews"
     },
     "header": {
         "selectLanguage": "Select language",
@@ -45,9 +45,18 @@
         "sectionDescription": "All our rooms feature smart locks, air conditioning, flat-screen TV and private bathroom.",
         "bookNow": "Book now",
         "roomTypes": {
-            "standard": "Standard Room",
-            "superior": "Superior Room",
-            "deluxe": "Deluxe Suite"
+            "double": {
+                "title": "Lepanto · Modern Double Room with Balcony",
+                "description": "A sleek, thoughtfully designed room perfect for couples or solo travellers. Features a comfortable double bed, smart TV, minibar, AC, and a private ensuite shower room. Enjoy your morning coffee on the small private balcony."
+            },
+            "twin": {
+                "title": "Lepanto · Modern Twin Room with Balcony",
+                "description": "An excellent choice for friends or colleagues, featuring two comfortable single beds. Enjoy modern comforts including a smart TV, minibar, AC, and a private ensuite shower room, complete with a cozy private balcony."
+            },
+            "penthouse": {
+                "title": "Lepanto · Accessible Penthouse Studio with Balcony",
+                "description": "Our crown jewel top-floor penthouse, designed with luxury and accessibility in mind. Enjoy generous proportions, a fully accessible roll-in shower, and a sweeping private rooftop terrace with views over the Msida rooftops."
+            }
         }
     },
     "process": {
@@ -100,11 +109,8 @@
         "copyright": "All rights reserved.",
         "links": {
             "rooms": "Rooms",
-            "booking": "Booking",
-            "about": "About us",
-            "faq": "FAQ",
-            "contact": "Contact",
-            "privacyPolicy": "Privacy policy"
+            "process": "How it works",
+            "testimonials": "Reviews"
         },
         "aria": {
             "facebook": "Facebook",
@@ -115,11 +121,17 @@
     "roomCard": {
         "from": "From",
         "perNight": "/ night",
-        "viewDetails": "View details"
+        "bookNow": "Book Now",
+        "amenities": {
+            "smartLock": "Smart Lock",
+            "wifi": "High-Speed WiFi",
+            "ac": "Air Conditioning",
+            "bathroom": "Private Bathroom"
+        }
     },
     "notFound": {
-        "title": "We're working on it 🛠️",
-        "description": "This page is not available yet. Come back later.",
+        "title": "Page not found (404)",
+        "description": "The page you are looking for does not exist or has been moved.",
         "backHome": "Back to home"
     },
     "map": {

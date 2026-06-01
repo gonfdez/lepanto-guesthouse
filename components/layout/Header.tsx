@@ -125,11 +125,11 @@ const Header: React.FC = () => {
             <NavLink href="#rooms" isScrolled={isScrolled}>
               {t('rooms')}
             </NavLink>
-            <NavLink href="/booking" isScrolled={isScrolled}>
-              {t('booking')}
+            <NavLink href="#process" isScrolled={isScrolled}>
+              {t('process')}
             </NavLink>
-            <NavLink href="/faq" isScrolled={isScrolled}>
-              {t('faq')}
+            <NavLink href="#testimonials" isScrolled={isScrolled}>
+              {t('testimonials')}
             </NavLink>
 
             {/* Selector de idioma dinámico - solo desktop */}
@@ -189,15 +189,13 @@ const Header: React.FC = () => {
               <MobileNavLink href="#rooms" onClick={() => setIsMenuOpen(false)}>
                 {t('rooms')}
               </MobileNavLink>
-              <MobileNavLink
-                href="/booking"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('booking')}
+              <MobileNavLink href="#process" onClick={() => setIsMenuOpen(false)}>
+                {t('process')}
               </MobileNavLink>
-              <MobileNavLink href="/faq" onClick={() => setIsMenuOpen(false)}>
-                {t('faq')}
+              <MobileNavLink href="#testimonials" onClick={() => setIsMenuOpen(false)}>
+                {t('testimonials')}
               </MobileNavLink>
+
 
               {/* Separador */}
               <hr className="my-2 border-gray-200" />

@@ -23,7 +23,7 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 scroll-mt-20" id="testimonials">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center pb-12">
           {t('sectionTitle')}
