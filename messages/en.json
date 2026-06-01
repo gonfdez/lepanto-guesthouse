@@ -46,15 +46,15 @@
         "bookNow": "Book now",
         "roomTypes": {
             "double": {
-                "title": "Lepanto · Modern Double Room with Balcony",
+                "title": "Modern Double Room with Balcony",
                 "description": "A sleek, thoughtfully designed room perfect for couples or solo travellers. Features a comfortable double bed, smart TV, minibar, AC, and a private ensuite shower room. Enjoy your morning coffee on the small private balcony."
             },
             "twin": {
-                "title": "Lepanto · Modern Twin Room with Balcony",
+                "title": "Modern Twin Room with Balcony",
                 "description": "An excellent choice for friends or colleagues, featuring two comfortable single beds. Enjoy modern comforts including a smart TV, minibar, AC, and a private ensuite shower room, complete with a cozy private balcony."
             },
             "penthouse": {
-                "title": "Lepanto · Accessible Penthouse Studio with Balcony",
+                "title": "Accessible Penthouse Studio with Balcony",
                 "description": "Our crown jewel top-floor penthouse, designed with luxury and accessibility in mind. Enjoy generous proportions, a fully accessible roll-in shower, and a sweeping private rooftop terrace with views over the Msida rooftops."
             }
         }

@@ -46,15 +46,15 @@
         "bookNow": "Reservar ahora",
         "roomTypes": {
             "double": {
-                "title": "Lepanto · Habitación Doble Moderna con Balcón",
+                "title": "Habitación Doble Moderna con Balcón",
                 "description": "Una habitación elegante y moderna, perfecta para parejas o viajeros solitarios. Cuenta con una cómoda cama doble, smart TV, minibar, aire acondicionado y baño privado con ducha. Disfruta de tu café matutino en el pequeño balcón privado."
             },
             "twin": {
-                "title": "Lepanto · Habitación Twin Moderna con Balcón",
+                "title": "Habitación Twin Moderna con Balcón",
                 "description": "Una excelente opción para amigos o compañeros, equipada con dos cómodas camas individuales. Disfruta de comodidades modernas como smart TV, minibar, aire acondicionado y un baño privado con ducha, además de un acogedor balcón."
             },
             "penthouse": {
-                "title": "Lepanto · Estudio Ático Accesible con Balcón",
+                "title": "Estudio Ático Accesible con Balcón",
                 "description": "La joya de la corona en nuestro ático, diseñado pensando en el lujo y la accesibilidad. Disfruta de amplios espacios, una ducha adaptada sin barreras y una espectacular terraza privada en la azotea con vistas a los tejados de Msida."
             }
         }

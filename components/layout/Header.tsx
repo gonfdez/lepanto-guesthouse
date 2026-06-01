@@ -119,7 +119,7 @@ const Header: React.FC = () => {
 
           {/* Navegación de escritorio */}
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink href="/" isScrolled={isScrolled}>
+            <NavLink href="#hero" isScrolled={isScrolled}>
               {t('home')}
             </NavLink>
             <NavLink href="#rooms" isScrolled={isScrolled}>
@@ -183,7 +183,7 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md">
             <div className="flex flex-col py-4">
-              <MobileNavLink href="/" onClick={() => setIsMenuOpen(false)}>
+              <MobileNavLink href="#hero" onClick={() => setIsMenuOpen(false)}>
                 {t('home')}
               </MobileNavLink>
               <MobileNavLink href="#rooms" onClick={() => setIsMenuOpen(false)}>

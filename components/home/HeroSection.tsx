@@ -10,7 +10,7 @@ export default function HeroSection({ images }: HeroSectionProps) {
   const t = useTranslations('hero');
 
   return (
-    <section className="relative h-screen min-h-[500px]">
+    <section id="hero" className="relative h-screen min-h-[500px]">
       {/* Carrusel de imágenes */}
       <HeroCarousel images={images} interval={6000} />
 
